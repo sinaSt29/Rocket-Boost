@@ -26,32 +26,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.16
+      value: 2.153
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.73
+      value: -0.22298098
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.85
+      value: -33.32
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99896735
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.04543447
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
@@ -104,6 +104,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2026077112392535327}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8903becf9bb9b124099407630c637d16,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5610939009733917526}
   m_SourcePrefab: {fileID: 100100000, guid: 8903becf9bb9b124099407630c637d16, type: 3}
 --- !u!1 &540331288225593304 stripped
 GameObject:
@@ -132,10 +136,10 @@ MonoBehaviour:
   useEasingForFloating: 1
   floatHeight: 0.6
   floatSpeed: 0.4
-  startScale: {x: 0.3, y: 0.3, z: 0.3}
-  endScale: {x: 0.35, y: 0.35, z: 0.35}
   isScaling: 1
   useEasingForScaling: 1
+  startScale: {x: 0.3, y: 0.3, z: 0.3}
+  endScale: {x: 0.35, y: 0.35, z: 0.35}
   scaleLerpSpeed: 1.11
 --- !u!65 &4719145587693362186
 BoxCollider:
@@ -170,8 +174,135 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015a1aa1936f7f64d9dff2c30e166bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyImages:
+  questionCanvas: {fileID: 0}
+  questionText: {fileID: 0}
+  optionTexts:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  optionButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  timerText: {fileID: 0}
+  countdownText: {fileID: 0}
+  SucsessAudio: {fileID: 8300000, guid: 253685d358f15da4e8e3189790790422, type: 3}
+  CrashAudio: {fileID: 8300000, guid: 8b908619436ccda4e9ef095c15e0e480, type: 3}
+  CrashAudio2: {fileID: 8300000, guid: 45fed248960381442a1234e37f6c8311, type: 3}
+  successParticle: {fileID: 0}
+  crashParticle: {fileID: 0}
+  questions:
+  - questionText: "\u062F\u0631 \u06A9\u06CC\u0633\u0647 \u0627\u06CC 2\u06AF\u0648\u06CC
+      \u0633\u0628\u0632 4\u06AF\u0648\u06CC \u0633\u0641\u06CC\u062F 7\u06AF\u0648\u06CC
+      \u0642\u0631\u0645\u0632 \u0627\u0633\u062A.\u0686\u0646\u062F\u06AF\u0648\u06CC
+      \u0628\u0631\u062F\u0627\u0631\u06CC\u0645 \u062A\u0627 \u0645\u0637\u0645\u0639\u0646
+      \u0628\u0627\u0634\u06CC\u0645 \u062D\u062F\u0627\u0642\u0644 \u06CC\u06A9
+      \u06AF\u0648\u06CC \u0633\u0641\u06CC\u062F \u0628\u0631\u062F\u0627\u0634\u062A\u0647
+      \u0627\u06CC\u0645\u061F"
+    options:
+    - 10
+    - 9
+    - 5
+    - 4
+    correctAnswerIndex: 0
+  timeLimit: 60
+  countdownDuration: 3
+--- !u!82 &5610939009733917526
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540331288225593304}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
