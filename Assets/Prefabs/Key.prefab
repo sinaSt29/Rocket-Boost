@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.153
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -33.32
+      value: -30.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8903becf9bb9b124099407630c637d16,
         type: 3}
@@ -108,6 +108,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5610939009733917526}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8903becf9bb9b124099407630c637d16,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3645861705803362670}
   m_SourcePrefab: {fileID: 100100000, guid: 8903becf9bb9b124099407630c637d16, type: 3}
 --- !u!1 &540331288225593304 stripped
 GameObject:
@@ -174,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015a1aa1936f7f64d9dff2c30e166bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   questionCanvas: {fileID: 0}
   questionText: {fileID: 0}
   optionTexts:
@@ -189,25 +194,56 @@ MonoBehaviour:
   timerText: {fileID: 0}
   countdownText: {fileID: 0}
   SucsessAudio: {fileID: 8300000, guid: 253685d358f15da4e8e3189790790422, type: 3}
-  CrashAudio: {fileID: 8300000, guid: 8b908619436ccda4e9ef095c15e0e480, type: 3}
   CrashAudio2: {fileID: 8300000, guid: 45fed248960381442a1234e37f6c8311, type: 3}
   successParticle: {fileID: 0}
   crashParticle: {fileID: 0}
   questions:
-  - questionText: "\u062F\u0631 \u06A9\u06CC\u0633\u0647 \u0627\u06CC 2\u06AF\u0648\u06CC
-      \u0633\u0628\u0632 4\u06AF\u0648\u06CC \u0633\u0641\u06CC\u062F 7\u06AF\u0648\u06CC
-      \u0642\u0631\u0645\u0632 \u0627\u0633\u062A.\u0686\u0646\u062F\u06AF\u0648\u06CC
-      \u0628\u0631\u062F\u0627\u0631\u06CC\u0645 \u062A\u0627 \u0645\u0637\u0645\u0639\u0646
-      \u0628\u0627\u0634\u06CC\u0645 \u062D\u062F\u0627\u0642\u0644 \u06CC\u06A9
-      \u06AF\u0648\u06CC \u0633\u0641\u06CC\u062F \u0628\u0631\u062F\u0627\u0634\u062A\u0647
-      \u0627\u06CC\u0645\u061F"
+  - questionText: "\u0628\u06CC\u0646 \u0648\u0627\u0698\u06AF\u0627\u0646 \u0632\u06CC\u0631
+      \u06A9\u062F\u0627\u0645\u06CC\u06A9 \u062C\u0645\u0639 \u0627\u0633\u062A\u061F"
     options:
-    - 10
-    - 9
-    - 5
-    - 4
-    correctAnswerIndex: 0
-  timeLimit: 60
+    - "\u06A9\u0648\u0647\u0627\u0646"
+    - "\u0628\u06CC\u0627\u0628\u0627\u0646"
+    - "\u0634\u0628\u0627\u0646\u06AF\u0627\u0647\u0627\u0646"
+    - "\u062F\u0631\u062E\u062A\u0627\u0646"
+    correctAnswerIndex: 3
+  - questionText: "\u06A9\u062F\u0627\u0645 \u06CC\u06A9 \u0628\u0647 \u0645\u0641\u0647\u0648\u0645
+      \u062A\u0639\u062F\u0627\u062F \u0628\u06CC\u0634\u062A\u0631\u06CC \u0627\u0632
+      \u0627\u0646\u0633\u0627\u0646 \u0647\u0627 \u0627\u0634\u0627\u0631\u0647
+      \u0645\u06CC\u06A9\u0646\u062F\u061F"
+    options:
+    - "\u0644\u0634\u06A9\u0631"
+    - "\u0645\u0644\u062A"
+    - "\u0642\u0628\u06CC\u0644\u0647"
+    - "\u06AF\u0631\u0648\u0647"
+    correctAnswerIndex: 1
+  - questionText: "\u06A9\u062F\u0627\u0645 \u06AF\u0632\u06CC\u0646\u0647 \u062D\u0631\u0648\u0641
+      \u0628\u0647\u0645 \u0631\u06CC\u062E\u062A\u0647 \u06CC\u06A9 \u0634\u063A\u0644
+      \u0627\u0633\u062A\u061F"
+    options:
+    - "\u0647\u0627\u0645\u0631\u0632\u0646\u06CC"
+    - "\u06CC\u0646\u0627\u06AF\u0628\u0647\u0646"
+    - "\u0636\u06CC\u0645\u0631\u06CC"
+    - "\u062F\u0648\u0645\u0628\u06A9"
+    correctAnswerIndex: 1
+  - questionText: "\u0627\u0645\u0644\u0627\u06CC \u06A9\u062F\u0627\u0645 \u06A9\u0644\u0645\u0647
+      \u0628\u0627 \u062A\u0648\u062C\u0647 \u0628\u0647 \u0645\u0639\u0646\u06CC
+      \u0622\u0646 \u062F\u0631\u0633\u062A \u0646\u06CC\u0633\u062A\u061F"
+    options:
+    - "\u0647\u0645\u062A:\u0627\u0631\u0627\u062F\u0647"
+    - "\u06A9\u0645\u0646\u062F:\u0631\u06CC\u0633\u0645\u0627\u0646"
+    - "\u063A\u0631\u06CC\u0628:\u0646\u0632\u062F\u06CC\u06A9"
+    - "\u0641\u0631\u0648\u062A\u0646\u06CC:\u062A\u0648\u0627\u0636\u0639"
+    correctAnswerIndex: 2
+  - questionText: "\u0646\u0633\u0628\u062A \u0647\u0641\u062A\u0647 \u0628\u0647
+      \u0633\u0647 \u0634\u0646\u0628\u0647  \u0645\u0627\u0646\u0646\u062F \u0646\u0633\u0628\u062A
+      \u0633\u0627\u0644 \u0627\u0633\u062A \u0628\u0647.... ."
+    options:
+    - "\u067E\u0627\u0631\u0633\u0627\u0644"
+    - "\u0627\u0645\u0633\u0627\u0644"
+    - "\u067E\u0627\u06CC\u06CC\u0632"
+    - "\u0647\u062C\u0631\u06CC \u0634\u0645\u0633\u06CC"
+    correctAnswerIndex: 2
+  timeLimit: 30
   countdownDuration: 3
 --- !u!82 &5610939009733917526
 AudioSource:
@@ -231,6 +267,103 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &3645861705803362670
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540331288225593304}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1.0008507
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

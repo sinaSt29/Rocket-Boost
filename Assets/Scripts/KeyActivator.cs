@@ -16,6 +16,10 @@ public class QuestionData
 
 public class KeyActivator : MonoBehaviour
 {
+    [Header("Player Reference")]
+    public GameObject player; // رفرنس به گیم‌ابجکت پلیر
+    private CollisionObjects CollisionObjectsSctipt;
+    
     [Header("UI References")]
     public GameObject questionCanvas;
     public RTLTextMeshPro questionText;
@@ -25,7 +29,6 @@ public class KeyActivator : MonoBehaviour
     public TextMeshProUGUI countdownText; // متن برای شمارش معکوس
 
     [SerializeField] private AudioClip SucsessAudio;
-    [SerializeField] private AudioClip CrashAudio;
     [SerializeField] private AudioClip CrashAudio2;
     [SerializeField] private ParticleSystem successParticle;
     [SerializeField] private ParticleSystem crashParticle;
@@ -47,6 +50,7 @@ public class KeyActivator : MonoBehaviour
 
     private void Start()
     {
+        CollisionObjectsSctipt = player.GetComponent<CollisionObjects>();
         audioSource = GetComponent<AudioSource>();
         questionCanvas.SetActive(false); // پنل سوال رو مخفی می‌کنیم
         if (countdownText != null)
@@ -70,7 +74,8 @@ public class KeyActivator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && canShowQuestion && currentQuestionIndex < questions.Count)
+        if (other.CompareTag("Player") && canShowQuestion 
+        && currentQuestionIndex < questions.Count&& !CollisionObjectsSctipt.isDead)
         {
             ShowQuestion();
             GetComponent<MeshRenderer>().enabled = false; // ظاهر کلید رو مخفی کن

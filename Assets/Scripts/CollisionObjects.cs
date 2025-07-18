@@ -11,10 +11,13 @@ public class CollisionObjects : MonoBehaviour
     [SerializeField] private ParticleSystem successParticle;
     [SerializeField] private ParticleSystem crashParticle;
 
+    public bool isDead;
+    
     private AudioSource audioSource;
 
     private void Start()
     {
+        isDead = false;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -28,7 +31,7 @@ public class CollisionObjects : MonoBehaviour
             case "Finish":
                 InvokeLoadNextLevel();
                 break;
-            
+
             default:
                 InvokeDeadPlayer();
                 break;
@@ -57,7 +60,7 @@ public class CollisionObjects : MonoBehaviour
                 break;
             case "Key":
                 InToTarget();
-                
+
                 break;
         }
     }
@@ -118,13 +121,11 @@ public class CollisionObjects : MonoBehaviour
     private void InvokeDeadPlayer()
     {
         if (!audioSource.isPlaying) audioSource.PlayOneShot(CrashAudio);
-        
-        
         crashParticle.Play();
-
-
         GetComponent<Movement>().enabled = false;
         Invoke("LoadLevel", 1);
+
+        isDead = true;
     }
 
     void LoadNextLevel()
