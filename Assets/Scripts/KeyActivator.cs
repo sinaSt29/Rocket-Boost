@@ -220,7 +220,7 @@ public class KeyActivator : MonoBehaviour
         // غیرفعال کردن کنواس و ادامه بازی
         questionCanvas.SetActive(false);
         Time.timeScale = 1f;
-        GetComponent<MeshRenderer>().enabled = true; // ظاهر کلید رو برگردون
-        GetComponent<Collider>().enabled = true; // کولایدر رو فعال کن
+        GetComponent<MeshRenderer>().enabled = false; // ظاهر کلید رو برگردون
+        GetComponent<Collider>().enabled = false; // کولایدر رو فعال کن
     }
 }

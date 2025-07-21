@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 public class CollisionObjects : MonoBehaviour
 {
     [SerializeField] private AudioClip SucsessAudio;
+    [SerializeField] private AudioClip ClapingAudio;
     [SerializeField] private AudioClip CrashAudio;
     [SerializeField] private ParticleSystem successParticle;
     [SerializeField] private ParticleSystem crashParticle;
@@ -109,13 +110,18 @@ public class CollisionObjects : MonoBehaviour
     {
         if (!audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(SucsessAudio);
+            audioSource.PlayOneShot(ClapingAudio);
         }
 
         successParticle.Play();
 
         GetComponent<Movement>().enabled = false;
-        Invoke("LoadNextLevel", 1);
+        Invoke("LoadAgain", 6);
+    }
+
+    void LoadAgain()
+    {
+        SceneManager.LoadScene(0);
     }
 
     private void InvokeDeadPlayer()
